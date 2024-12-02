@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}My Flask Project{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+
+  <body>
+    <header>
+        <nav>
+            <a href="/">HOME</a>
+            <a href="/development">DEVELOPMENT</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <section id="main-text">
+            <h1 id="first-word">FLASK</h1><br>
+            <h1>FRAMEWORK</h1><br>
+            <h2>Lynn John-Koshy</h2><br>
+            <p><em>I used a Flask framework to develop my project for problem 3. Please reference the above headings to learn more about the development process and challanges encountered.</em></p>
+        </section>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; CPS 530 Lab10c (Flask Development) By Lynn | All rights reserved.</p>
+    </footer>
+  </body>
+</html>
