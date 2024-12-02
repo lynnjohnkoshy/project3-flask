@@ -5,26 +5,29 @@
 {% block content %}
 
     <div id="content">
-        <h1>INSTALLATION OF FRAMEWORK:</h1>
+        <h1>INSTALLATION OF FLASK FRAMEWORK (macOS):</h1>
         <section>
             <ol>
+                <li>Create and activate a virutal environment using <code>python3 -m venv venv</code> and <code>source venv/bin/activate</code>.</li>
                 <li>Install python from <a href="https://www.python.org/downloads/">python.org</a> and verify using <code>python3 --version</code>.</li>
                 <li>Install pip using <a href="https://pip.pypa.io/en/stable/installation/">pip installation guide</a> and verify using <code>pip --version</code>.</li>
                 <li>Make a directory for the flask project <code>mkdir problem3-flask</code>.</li>
-                <li>Move into the directory <code>cd problem3-flask</code>.</li>
+                <li>Move into the directory with <code>cd problem3-flask</code>.</li>
                 <li>Install flask using <code>pip install flask</code>.</li>
-                <li>Create the folder/file structure and code (see in <em>"HOW I BUILT THE WEBSITE"</em>).</li>
-                <li>Run program using <code>flask run</code>.</li>
+                <li>Create the folder/file structure and code (see in <em>"DEVELOPMENT PROCESS OF WEBSITE USING FLASK FRAMEWORK"</em> for details).</li>
+                <li>Run program using <code>flask run</code> for testing.</li>
+                <li>Install <code>gunicorn</code> python library using <code>pip install flask gunicorn</code>. This will be used to help run the Flask project when deployed.</li>
+                <li>Create a <code>requirements.txt</code> file that will save the dependencies using <code>pip freeze > requirements.txt</code>.</li>
             </ol>
         </section>
 
-        <h1>HOW I BUILT THE WEBSITE:</h1>
+        <h1>DEVELOPMENT PROCESS OF WEBSITE USING FLASK FRAMEWORK:</h1>
         <section>
             <ol>
-                <li>Developed the folder/file structure of my website.
+                <li>After installing all requirements, I developed the folder/file structure of my website:
                     <ul>
-                        <li>Created a <code>templates</code> folder for my HTML files: <em>base.html & development.html</em>.</li>
-                        <li>Created a <code>static</code> folder for CSS stylesheet and assets: <em>styles.css</em>.</li>
+                        <li>Created a <code>templates</code> folder for my HTML files: <em><code>base.html</code> & <code>development.html</code></em>.</li>
+                        <li>Created a <code>static</code> folder for CSS stylesheet and assets: <em><code>styles.css</code></em>.</li>
                         <li>Created an <code>app.py</code> used for the Flask framework backend.</li>
                     </ul>
 
@@ -44,7 +47,7 @@
                 <li>Set up the Flask backend in <code>app.py</code>:
                     <ul>
                         <li>Imported <code>Flask</code> and <code>render_template</code>.</li>
-                        <li>Defined the routes for the Home and Development pages.</li>
+                        <li>Defined the routes for the <code>HOME</code> and <code>DEVELOPMENT</code> pages. This tells flask which URL to access each page with!</li>
                         <li>Rendered HTML templates using <code>render_template()</code>.</li>
                     </ul>
 
@@ -64,52 +67,55 @@
                             return render_template('development.html')
 
                         if __name__ == '__main__':
-                            app.run(debug=True)
+                            app.run()
 
                     </pre>
                 </li>
-                <li>Designed the home page HTML code in <code>base.html</code>:
+                <li>Designed the <code>HOME</code> page in <code>base.html</code>:
                     <ul>
-                        <li>Added a consistent header (includes the nav bar), and footer.</li>
-                        <li>Used the <code>{ % block content % }</code> and <code>{ % block title % }</code> for content specfic pages.</li>
-                        <li>Added html code to create a landing page.</li>
+                        <li>Added a header (including the nav bar) and footer using HTML.</li>
+                        <li>Defined <code>{ % block title % } { % endblock % }</code> and <code>{ % block content % } { % endblock % }</code> code blocks. These blocks will allow for page specfic content when we extend this file.</li>
+                        <li>Added additional html code to create a landing page. For example, I added code to create the title.</li>
                     </ul>
 
                     <pre>
 
 
                         For example, by placing { % block content % }{ % endblock % } code 
-                        into the bas.html file, any other file that extends base.html can 
-                        place its unique code within these braces and it will be rendered! 
+                        into the base.html file, any other file that extends base.html can 
+                        place its unique html code within these braces. This will allow the
+                        additional code to be rendered with the base.html header and footer! 
 
                     </pre>
                 </li>
-                <li>Designed the Development page and added CSS:
+                <li>Designed the <code>DEVELOPMENT</code> page and added CSS:
                     <ul>
-                        <li>Extended the <code>base.html</code> template to get the header and footer for the <code>development.html</code>.</li>
+                        <li>Extended the <code>base.html</code> template to get the header and footer for the <code>development.html</code> page.</li>
                         <li>Added additional code to the <code>development.html</code> body for its page specific content.</li>
-                        <li>Applied CSS styling to the Home and Development page using <code>styles.css</code>.</li>
+                        <li>Applied CSS styling to the <code>HOME</code> and <code>DEVELOPMENT</code> page using the linked <code>styles.css</code> stylesheet.</li>
                     </ul>
                 </li>
                 <br><br>
                 <li>Deployed the webpage:
                     <ul>
-                        <li>Ran the Flask app using <code>flask run</code>.</li>
+                        <li>Ran the Flask webpage using <code>flask run</code>.</li>
                         <li>Accessed the website at <code>http://127.0.0.1:5000</code>.</li>
                         <li>Debugged errors and fixed styling issues.</li>
-                        <li>Uploaded the webpage to a hosting platform.</li>
+                        <li>Install <code>gunicorn</code> python library and created <code>requirements.txt</code> (see in <em>"INSTALLATION OF FLASK FRAMEWORK (macOS)"</em> for details).</li>
+                        <li>Uploaded the webpage to <code>GitHub</code>.</li>
+                        <li>Using the hosting site <code>Render</code> accessed the GitHub code to deploy the website.</li>
                     </ul>
                 </li>
             </ol>
         </section>
     
-        <h1>CHALLENGES</h1>
+        <h1>CHALLENGES IN WEBSITE DEVELOPMENT:</h1>
         <section>
             <ul>
                 <li><strong>Template Errors:</strong> Missing template files caused rendering errors when trying to create new routes. To solve this issue, I ensured all files were in the <code>templates</code> folder and routed correctly (e.g. proper spelling).</li>
-                <li><strong>CSS Stylings:</strong> Some of the styles I created didn't apply as I intended them to. To solve this issue, I debugged using different styles, noticing I had conflicting style rules.</li>
-                <li><strong>Folder Styling:</strong> In one portion of this project I wanted to display a folder/file structure, which would be challanging to do. To solve this issue I used the <code>pre</code> tag.</li>
-                <li><strong>Hosting Difficulties:</strong> Setting up a was something that was new to me and was timeconsuming. To solve this issue, I watched youtube videos to understand how to host the webpage.</li>
+                <li><strong>CSS Stylings:</strong> Some of the styles I created didn't apply as I intended them to. To solve this issue, I debugged removed and added styles, noticing I had conflicting style rules. After this discovery, I resolved the styling issue.</li>
+                <li><strong>Folder Styling:</strong> In one portion of this project I wanted to display a folder/file structure, which would be challenging to do. To solve this issue I used the <code>preformatted text</code> tag to perserve whitespaces.</li>
+                <li><strong>Hosting Difficulties:</strong> Deploying the website a was something that was new to me, timeconsuming, and challenging. To solve this issue, I watched youtube videos to understand how to host the webpage and was able to find a hosting site (<code>Render</code>). Here I needed to further learn about the <code>gunicorn</code> python library and creating a <code>requirements.txt</code> file, which allowed me to deploy the site.</li>
             </ul>    
         </section>
     </div>
