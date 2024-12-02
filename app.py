@@ -11,4 +11,4 @@ def development():
     return render_template('development.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
