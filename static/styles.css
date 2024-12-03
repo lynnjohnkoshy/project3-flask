@@ -79,6 +79,7 @@ body {
 #content h1 {
     color: rgb(0, 255, 247); 
     text-align: center;
+    font-size: 30px;
     margin-top: 40px;
     margin-bottom: -70px;
 }
@@ -114,6 +115,14 @@ body {
     #main-text p {
         font-size: 18px;
     }
+
+    #content h1 {
+        font-size: 30px;
+    }
+
+    #content section {
+        max-width: 650px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -129,6 +138,14 @@ body {
         font-size: 16px;
     }
 
+    #content h1 {
+        font-size: 25px;
+    }
+
+    #content section {
+        max-width: 450px;
+    }
+
     footer {
         font-size: 12px;
     }
@@ -136,11 +153,23 @@ body {
 
 @media (max-width: 480px) {
     #main-text h1 {
-        font-size: 70px;
+        font-size: 74px;
+    }
+
+    #first-word {
+        margin-bottom: -40px;
     }
 
     #main-text h2 {
         font-size: 24px;
+    }
+
+    #content h1 {
+        font-size: 18px;
+    }
+
+    #content section {
+        max-width: 300px;
     }
 
     #main-text p {
